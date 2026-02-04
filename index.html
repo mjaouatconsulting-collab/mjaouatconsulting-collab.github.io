@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Marouane Jaouat (MJAouat Consulting) — Sociologist, former postdoctoral researcher, keynote speaker and consultant on AI, emerging technologies, work and meaning." />
+  <title>Marouane Jaouat | MJAouat Consulting</title>
+
+  <style>
+    :root{
+      --bg:#fbfaf7;
+      --paper:#ffffff;
+      --ink:#151515;
+      --muted:#5a5a5a;
+      --hair:#e8e2d8;
+      --accent:#123a59; /* bleu nuit discret */
+      --accent2:#0f2e47;
+      --shadow: 0 12px 40px rgba(0,0,0,.06);
+      --radius: 16px;
+      --max: 1040px;
+      --read: 820px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(18,58,89,.06), transparent 60%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(15,46,71,.05), transparent 55%),
+                  var(--bg);
+      color:var(--ink);
+      font-family:var(--sans);
+      line-height:1.55;
+    }
+
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Header */
+    .header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(140%) blur(10px);
+      background: rgba(251,250,247,.85);
+      border-bottom:1px solid var(--hair);
+    }
+    .bar{
+      display:flex; align-items:center; justify-content:space-between;
+      height:72px;
+      gap:12px;
+    }
+    .brand{
+      display:flex; flex-direction:column; gap:2px;
+    }
+    .brand b{
+      font-weight:650; letter-spacing:.2px;
+    }
+    .brand small{
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.2px;
+    }
+
+    .nav{
+      display:flex; align-items:center; gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      font-size:13px;
+      color:var(--ink);
+      opacity:.9;
+      padding:8px 10px;
+      border-radius:10px;
+    }
+    .nav a:hover{
+      background: rgba(18,58,89,.06);
+      text-decoration:none;
+    }
+    .lang{
+      display:flex; gap:8px; align-items:center;
+      border-left:1px solid var(--hair);
+      padding-left:12px;
+      margin-left:6px;
+    }
+    .chip{
+      font-size:12px;
+      padding:8px 10px;
+      border:1px solid var(--hair);
+      border-radius:999px;
+      background:var(--paper);
+      cursor:pointer;
+      color:var(--ink);
+    }
+    .chip[aria-pressed="true"]{
+      border-color: rgba(18,58,89,.35);
+      background: rgba(18,58,89,.06);
+      color: var(--accent2);
+    }
+
+    /* Hero */
+    .hero{
+      padding:64px 0 28px;
+    }
+    .card{
+      background: var(--paper);
+      border:1px solid var(--hair);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .heroCard{
+      padding:34px 28px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:start;
+    }
+    h1{
+      margin:0 0 12px;
+      font-family:var(--serif);
+      font-weight:700;
+      letter-spacing:.2px;
+      font-size:40px;
+      line-height:1.12;
+    }
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      max-width: 58ch;
+      font-size:16px;
+    }
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius: 12px;
+      font-size:13px;
+      border:1px solid var(--hair);
+      background:var(--paper);
+      color:var(--ink);
+      cursor:pointer;
+    }
+    .btn.primary{
+      background: var(--accent);
+      border-color: var(--accent);
+      color:white;
+    }
+    .btn.primary:hover{background:var(--accent2)}
+    .btn:hover{background: rgba(18,58,89,.05); text-decoration:none}
+
+    .sidebar{
+      border-left:1px solid var(--hair);
+      padding-left:18px;
+    }
+    .fact{
+      margin:0 0 10px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .fact b{color:var(--ink)}
+    .pillRow{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
+    .pill{
+      font-size:12px;
+      padding:7px 10px;
+      border:1px solid var(--hair);
+      border-radius:999px;
+      background:rgba(18,58,89,.03);
+      color:var(--accent2);
+      white-space:nowrap;
+    }
+
+    /* Sections */
+    section{padding:22px 0}
+    .sectionCard{padding:26px 28px}
+    h2{
+      margin:0 0 12px;
+      font-family:var(--serif);
+      font-size:26px;
+      letter-spacing:.2px;
+    }
+    .kicker{
+      font-family:var(--mono);
+      font-size:12px;
+      color: rgba(18,58,89,.85);
+      letter-spacing:.5px;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:16px;
+    }
+    .mini{
+      border:1px solid var(--hair);
+      border-radius: 14px;
+      padding:14px 14px;
+      background: rgba(251,250,247,.7);
+      min-height: 124px;
+    }
+    .mini b{display:block; margin-bottom:6px}
+    .mini p{margin:0; color:var(--muted); font-size:13px}
+    .list{
+      margin:12px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+    .list li{margin:6px 0}
+
+    /* Two columns block */
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      margin-top:14px;
+    }
+    .note{
+      border-left:3px solid rgba(18,58,89,.35);
+      padding:10px 12px;
+      background: rgba(18,58,89,.04);
+      border-radius: 12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Contact */
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    label{font-size:12px; color:var(--muted)}
+    input, textarea{
+      width:100%;
+      margin-top:6px;
+      padding:10px 12px;
+      border:1px solid var(--hair);
+      border-radius: 12px;
+      background: var(--paper);
+      font-family: var(--sans);
+      font-size:14px;
+      outline:none;
+    }
+    input:focus, textarea:focus{border-color: rgba(18,58,89,.45)}
+    textarea{min-height:120px; resize:vertical}
+    .muted{color:var(--muted)}
+    .small{font-size:13px}
+    .sep{height:1px; background:var(--hair); margin:14px 0}
+
+    /* Footer */
+    footer{
+      padding:26px 0 40px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .foot{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap:14px; flex-wrap:wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .heroCard{grid-template-columns: 1fr; }
+      .sidebar{border-left:none; padding-left:0; border-top:1px solid var(--hair); padding-top:14px}
+      .grid{grid-template-columns: 1fr}
+      .two{grid-template-columns: 1fr}
+      .contactGrid{grid-template-columns: 1fr}
+      h1{font-size:34px}
+    }
+
+    /* Print friendly */
+    @media print{
+      .header, .ctaRow, .lang, .btn {display:none !important}
+      body{background:white}
+      .card{box-shadow:none}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="wrap bar">
+      <div class="brand" aria-label="Brand">
+        <b>Marouane Jaouat</b>
+        <small>MJAouat Consulting</small>
+      </div>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#home" data-i18n="nav_home">Home</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#research" data-i18n="nav_research">Research</a>
+        <a href="#talks" data-i18n="nav_talks">Talks</a>
+        <a href="#consulting" data-i18n="nav_consulting">Consulting</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+
+        <div class="lang" aria-label="Language selector">
+          <button class="chip" id="btnEN" aria-pressed="true">EN</button>
+          <button class="chip" id="btnFR" aria-pressed="false">FR</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="wrap">
+    <div class="hero">
+      <div class="card heroCard">
+        <div>
+          <div class="kicker" data-i18n="hero_kicker">Research-based speaking & consulting</div>
+          <h1 data-i18n="hero_title">Sociology of Emerging Technologies, Work, and Meaning</h1>
+          <p class="sub" data-i18n="hero_sub">
+            I am a sociologist and former postdoctoral researcher. I work at the intersection of research,
+            public speaking, and consulting to help institutions navigate technological and psychological transitions.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="#contact" data-i18n="cta_speak">Invite me to speak</a>
+            <a class="btn" href="#contact" data-i18n="cta_project">Discuss a consulting project</a>
+            <a class="btn" href="#research" data-i18n="cta_cv">Academic profile</a>
+          </div>
+
+          <div class="sep"></div>
+
+          <div class="grid" aria-label="Focus areas">
+            <div class="mini">
+              <b data-i18n="fa1_t">AI & Society</b>
+              <p data-i18n="fa1_d">Trust, authority, governance, everyday decisions, and the social life of models.</p>
+            </div>
+            <div class="mini">
+              <b data-i18n="fa2_t">Transhumanism (critical lens)</b>
+              <p data-i18n="fa2_d">Enhancement narratives as cultural mirrors: imaginaries, promises, and anxieties.</p>
+            </div>
+            <div class="mini">
+              <b data-i18n="fa3_t">Mental Health at Work</b>
+              <p data-i18n="fa3_d">Acceleration, attention, meaning, psychological safety, and organizational care.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="sidebar" aria-label="Profile summary">
+          <p class="fact"><b data-i18n="side_role">Role</b><br><span data-i18n="side_role_v">Sociologist · Lecturer/Researcher · Keynote speaker · Consultant</span></p>
+          <p class="fact"><b data-i18n="side_focus">Focus</b><br><span data-i18n="side_focus_v">Emerging tech, AI, digital culture, future of work, digital health, ethics</span></p>
+          <p class="fact"><b data-i18n="side_base">Base</b><br><span data-i18n="side_base_v">France (Europe/Paris) · International engagements</span></p>
+
+          <div class="pillRow" aria-label="Credentials strip">
+            <span class="pill" data-i18n="pill1">Academic background</span>
+            <span class="pill" data-i18n="pill2">Field research</span>
+            <span class="pill" data-i18n="pill3">Executive education</span>
+            <span class="pill" data-i18n="pill4">Keynotes & workshops</span>
+          </div>
+
+          <div class="sep"></div>
+
+          <p class="small muted" data-i18n="side_note">
+            This website is intentionally minimal: clear writing, readable structure, and a quiet tone suitable for universities,
+            institutions, and leadership audiences.
+          </p>
+        </aside>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="card sectionCard">
+        <div class="kicker" data-i18n="about_k">About</div>
+        <h2 data-i18n="about_t">Bio and approach</h2>
+
+        <div class="two">
+          <div>
+            <p class="muted" data-i18n="about_p1">
+              I am a sociologist trained in qualitative inquiry and the analysis of contemporary imaginaries.
+              After completing doctoral research on transhumanism and a postdoctoral fellowship, I now work across research,
+              teaching, public speaking, and consulting.
+            </p>
+            <p class="muted" data-i18n="about_p2">
+              My work helps organizations think clearly about AI and emerging technologies, not only as tools, but as social
+              environments that reshape attention, professional identity, governance, and meaning.
+            </p>
+
+            <ul class="list" aria-label="Principles">
+              <li data-i18n="about_li1"><b>Rigor</b>: evidence, conceptual clarity, and methodological discipline.</li>
+              <li data-i18n="about_li2"><b>Clarity</b>: accessible language without losing complexity.</li>
+              <li data-i18n="about_li3"><b>Ethics</b>: responsibility, care, and institutional trust.</li>
+              <li data-i18n="about_li4"><b>Practicality</b>: outputs designed for decisions and action.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="note">
+              <b data-i18n="shortbio_t">Short bio (for organizers)</b><br>
+              <span data-i18n="shortbio_v">
+                Marouane Jaouat is a sociologist and former postdoctoral researcher. He works at the intersection of research,
+                public speaking, and consulting on AI, emerging technologies, work, and meaning.
+              </span>
+            </div>
+
+            <div class="sep"></div>
+
+            <p class="muted small" data-i18n="langs">
+              Languages: French, English.
+            </p>
+
+            <p class="muted small" data-i18n="about_placeholders">
+              Placeholders you may want to add: institutional affiliations, selected publications, and a speaker headshot.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="card sectionCard">
+        <div class="kicker" data-i18n="res_k">Research</div>
+        <h2 data-i18n="res_t">Research interests and selected outputs</h2>
+
+        <div class="grid">
+          <div class="mini">
+            <b data-i18n="res1_t">Research interests</b>
+            <p data-i18n="res1_d">AI & society, imaginaries of the future, transhumanism, work and identity, digital health, ethics.</p>
+          </div>
+          <div class="mini">
+            <b data-i18n="res2_t">Doctoral work</b>
+            <p data-i18n="res2_d">PhD research on transhumanism and technological salvation narratives. [Add thesis title here]</p>
+          </div>
+          <div class="mini">
+            <b data-i18n="res3_t">Publications</b>
+            <p data-i18n="res3_d">Selected publications list with references and PDF links. [Add citations here]</p>
+          </div>
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="two">
+          <div>
+            <b data-i18n="pubs_t">Selected publications (placeholder)</b>
+            <ul class="list">
+              <li>[Year] <span class="muted">[Title]</span> · <span class="muted">[Journal / Publisher]</span></li>
+              <li>[Year] <span class="muted">[Title]</span> · <span class="muted">[Journal / Publisher]</span></li>
+              <li>[Year] <span class="muted">[Title]</span> · <span class="muted">[Conference / Book chapter]</span></li>
+            </ul>
+          </div>
+          <div>
+            <b data-i18n="cv_t">Academic CV</b>
+            <p class="muted small" data-i18n="cv_d">
+              Add a PDF later (e.g., cv.pdf) and link it here.
+            </p>
+            <a class="btn" href="#" onclick="alert('Add your CV PDF and link it here (e.g., cv.pdf).'); return false;" data-i18n="cv_btn">
+              Download academic CV (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="talks">
+      <div class="card sectionCard">
+        <div class="kicker" data-i18n="talks_k">Talks</div>
+        <h2 data-i18n="talks_t">Keynotes, talks, workshops</h2>
+
+        <p class="muted" data-i18n="talks_p">
+          Formats are designed for universities, institutions, and leadership audiences. The tone is research-based, clear,
+          and oriented toward actionable insight.
+        </p>
+
+        <div class="grid" aria-label="Formats">
+          <div class="mini">
+            <b data-i18n="fmt1_t">Keynote (45–60 min)</b>
+            <p data-i18n="fmt1_d">A structured narrative with concepts, cases, and a clear takeaway for decision-makers.</p>
+          </div>
+          <div class="mini">
+            <b data-i18n="fmt2_t">Talk (20–30 min)</b>
+            <p data-i18n="fmt2_d">A concise intervention, ideal for panels, conferences, and academic events.</p>
+          </div>
+          <div class="mini">
+            <b data-i18n="fmt3_t">Workshop (90–180 min)</b>
+            <p data-i18n="fmt3_d">Interactive session: mapping risks, governance, ethics, and practical guidelines.</p>
+          </div>
+        </div>
+
+        <div class="sep"></div>
+
+        <b data-i18n="topics_t">Suggested keynote themes</b>
+        <ul class="list">
+          <li data-i18n="topic1"><b>From Tools to States of Mind</b>: how AI reshapes attention, work, and meaning.</li>
+          <li data-i18n="topic2"><b>The Social Life of AI</b>: trust, authority, and everyday decisions.</li>
+          <li data-i18n="topic3"><b>Transhumanism as a Mirror</b>: what enhancement narratives reveal about us.</li>
+          <li data-i18n="topic4"><b>Mental Health at Work</b>: acceleration, identity, and organizational care.</li>
+          <li data-i18n="topic5"><b>Digital Health & Professional Identity</b>: ethics, data, and care practices.</li>
+          <li data-i18n="topic6"><b>Future of Work</b>: skills, institutions, and the human factor.</li>
+        </ul>
+
+        <div class="sep"></div>
+
+        <a class="btn primary" href="#contact" data-i18n="speaker_cta">Request a speaker kit</a>
+      </div>
+    </section>
+
+    <section id="consulting">
+      <div class="card sectionCard">
+        <div class="kicker" data-i18n="cons_k">Consulting</div>
+        <h2 data-i18n="cons_t">Advisory, training, qualitative evaluation</h2>
+
+        <p class="muted" data-i18n="cons_p">
+          MJAouat Consulting supports organizations with research-informed analysis and clear deliverables.
+          The objective is not noise, but clarity: governance, professional practices, and human experience.
+        </p>
+
+        <div class="grid" aria-label="Offer pillars">
+          <div class="mini">
+            <b data-i18n="pillA_t">Strategy & advisory</b>
+            <p data-i18n="pillA_d">Diagnostics, governance frameworks, ethical risk mapping, decision support memos.</p>
+          </div>
+          <div class="mini">
+            <b data-i18n="pillB_t">Training & executive education</b>
+            <p data-i18n="pillB_d">AI literacy, ethics, digital culture, mental health at work, professional identity online.</p>
+          </div>
+          <div class="mini">
+            <b data-i18n="pillC_t">Qualitative research & evaluation</b>
+            <p data-i18n="pillC_d">Interviews, thematic analysis, stakeholder synthesis, actionable recommendations.</p>
+          </div>
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="note" data-i18n="examples">
+          <b>Example scenarios (anonymized)</b><br>
+          1) A public institution clarifying AI governance and usage boundaries.<br>
+          2) A training program designing a responsible digital identity policy for staff.<br>
+          3) A leadership team addressing mental health and attention in high acceleration environments.
+        </div>
+
+        <div class="sep"></div>
+
+        <a class="btn" href="#contact" data-i18n="cons_cta">Start a conversation</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="card sectionCard">
+        <div class="kicker" data-i18n="ct_k">Contact</div>
+        <h2 data-i18n="ct_t">Get in touch</h2>
+        <p class="muted" data-i18n="ct_p">
+          Use the form below or email directly. Based in France (Europe/Paris). Available for international engagements.
+        </p>
+
+        <div class="contactGrid">
+          <div>
+            <label data-i18n="f_name_l">Name</label>
+            <input id="name" placeholder="Your name" />
+          </div>
+          <div>
+            <label data-i18n="f_email_l">Email</label>
+            <input id="email" placeholder="name@organization.org" />
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <label data-i18n="f_msg_l">Message</label>
+          <textarea id="message" placeholder="Briefly describe your context, audience, and what you need."></textarea>
+        </div>
+
+        <div class="ctaRow" style="margin-top:12px">
+          <button class="btn primary" id="sendBtn" data-i18n="send_btn">Prepare email</button>
+          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer" data-i18n="linkedin_btn">LinkedIn</a>
+        </div>
+
+        <p class="small muted" style="margin-top:10px" data-i18n="ct_note">
+          Note: the “Prepare email” button opens your email client with a prefilled message (no data is stored here).
+        </p>
+
+        <div class="sep"></div>
+
+        <p class="small muted">
+          <b data-i18n="direct_email">Direct email:</b>
+          <span class="muted">[add-your-email@domain.com]</span>
+          <br />
+          <span class="muted" data-i18n="ids">Optional IDs:</span> Google Scholar · ORCID · ResearchGate (add links when ready)
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap foot">
+        <div>
+          <b>Marouane Jaouat</b><br />
+          <span class="muted">MJAouat Consulting</span>
+        </div>
+        <div class="muted">
+          <span data-i18n="foot_line">Minimal, readable, research-aligned.</span><br />
+          <span>© <span id="year"></span></span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const dict = {
+      en: {
+        nav_home: "Home", nav_about: "About", nav_research:"Research", nav_talks:"Talks", nav_consulting:"Consulting", nav_contact:"Contact",
+        hero_kicker:"Research-based speaking & consulting",
+        hero_title:"Sociology of Emerging Technologies, Work, and Meaning",
+        hero_sub:"I am a sociologist and former postdoctoral researcher. I work at the intersection of research, public speaking, and consulting to help institutions navigate technological and psychological transitions.",
+        cta_speak:"Invite me to speak", cta_project:"Discuss a consulting project", cta_cv:"Academic profile",
+        fa1_t:"AI & Society", fa1_d:"Trust, authority, governance, everyday decisions, and the social life of models.",
+        fa2_t:"Transhumanism (critical lens)", fa2_d:"Enhancement narratives as cultural mirrors: imaginaries, promises, and anxieties.",
+        fa3_t:"Mental Health at Work", fa3_d:"Acceleration, attention, meaning, psychological safety, and organizational care.",
+        side_role:"Role", side_role_v:"Sociologist · Lecturer/Researcher · Keynote speaker · Consultant",
+        side_focus:"Focus", side_focus_v:"Emerging tech, AI, digital culture, future of work, digital health, ethics",
+        side_base:"Base", side_base_v:"France (Europe/Paris) · International engagements",
+        pill1:"Academic background", pill2:"Field research", pill3:"Executive education", pill4:"Keynotes & workshops",
+        side_note:"This website is intentionally minimal: clear writing, readable structure, and a quiet tone suitable for universities, institutions, and leadership audiences.",
+        about_k:"About", about_t:"Bio and approach",
+        about_p1:"I am a sociologist trained in qualitative inquiry and the analysis of contemporary imaginaries. After completing doctoral research on transhumanism and a postdoctoral fellowship, I now work across research, teaching, public speaking, and consulting.",
+        about_p2:"My work helps organizations think clearly about AI and emerging technologies, not only as tools, but as social environments that reshape attention, professional identity, governance, and meaning.",
+        about_li1:"Rigor: evidence, conceptual clarity, and methodological discipline.",
+        about_li2:"Clarity: accessible language without losing complexity.",
+        about_li3:"Ethics: responsibility, care, and institutional trust.",
+        about_li4:"Practicality: outputs designed for decisions and action.",
+        shortbio_t:"Short bio (for organizers)",
+        shortbio_v:"Marouane Jaouat is a sociologist and former postdoctoral researcher. He works at the intersection of research, public speaking, and consulting on AI, emerging technologies, work, and meaning.",
+        langs:"Languages: French, English.",
+        about_placeholders:"Placeholders you may want to add: institutional affiliations, selected publications, and a speaker headshot.",
+        res_k:"Research", res_t:"Research interests and selected outputs",
+        res1_t:"Research interests", res1_d:"AI & society, imaginaries of the future, transhumanism, work and identity, digital health, ethics.",
+        res2_t:"Doctoral work", res2_d:"PhD research on transhumanism and technological salvation narratives. [Add thesis title here]",
+        res3_t:"Publications", res3_d:"Selected publications list with references and PDF links. [Add citations here]",
+        pubs_t:"Selected publications (placeholder)", cv_t:"Academic CV", cv_d:"Add a PDF later (e.g., cv.pdf) and link it here.",
+        cv_btn:"Download academic CV (PDF)",
+        talks_k:"Talks", talks_t:"Keynotes, talks, workshops",
+        talks_p:"Formats are designed for universities, institutions, and leadership audiences. The tone is research-based, clear, and oriented toward actionable insight.",
+        fmt1_t:"Keynote (45–60 min)", fmt1_d:"A structured narrative with concepts, cases, and a clear takeaway for decision-makers.",
+        fmt2_t:"Talk (20–30 min)", fmt2_d:"A concise intervention, ideal for panels, conferences, and academic events.",
+        fmt3_t:"Workshop (90–180 min)", fmt3_d:"Interactive session: mapping risks, governance, ethics, and practical guidelines.",
+        topics_t:"Suggested keynote themes",
+        topic1:"From Tools to States of Mind: how AI reshapes attention, work, and meaning.",
+        topic2:"The Social Life of AI: trust, authority, and everyday decisions.",
+        topic3:"Transhumanism as a Mirror: what enhancement narratives reveal about us.",
+        topic4:"Mental Health at Work: acceleration, identity, and organizational care.",
+        topic5:"Digital Health & Professional Identity: ethics, data, and care practices.",
+        topic6:"Future of Work: skills, institutions, and the human factor.",
+        speaker_cta:"Request a speaker kit",
+        cons_k:"Consulting", cons_t:"Advisory, training, qualitative evaluation",
+        cons_p:"MJAouat Consulting supports organizations with research-informed analysis and clear deliverables. The objective is not noise, but clarity: governance, professional practices, and human experience.",
+        pillA_t:"Strategy & advisory", pillA_d:"Diagnostics, governance frameworks, ethical risk mapping, decision support memos.",
+        pillB_t:"Training & executive education", pillB_d:"AI literacy, ethics, digital culture, mental health at work, professional identity online.",
+        pillC_t:"Qualitative research & evaluation", pillC_d:"Interviews, thematic analysis, stakeholder synthesis, actionable recommendations.",
+        examples:"Example scenarios (anonymized)\n1) A public institution clarifying AI governance and usage boundaries.\n2) A training program designing a responsible digital identity policy for staff.\n3) A leadership team addressing mental health and attention in high acceleration environments.",
+        ct_k:"Contact", ct_t:"Get in touch",
+        ct_p:"Use the form below or email directly. Based in France (Europe/Paris). Available for international engagements.",
+        f_name_l:"Name", f_email_l:"Email", f_msg_l:"Message",
+        send_btn:"Prepare email", linkedin_btn:"LinkedIn",
+        ct_note:"Note: the “Prepare email” button opens your email client with a prefilled message (no data is stored here).",
+        direct_email:"Direct email:", ids:"Optional IDs:",
+        foot_line:"Minimal, readable, research-aligned."
+      },
+      fr: {
+        nav_home: "Accueil", nav_about: "À propos", nav_research:"Recherche", nav_talks:"Conférences", nav_consulting:"Conseil", nav_contact:"Contact",
+        hero_kicker:"Conférences & conseil fondés sur la recherche",
+        hero_title:"Sociologie des technologies émergentes, du travail et du sens",
+        hero_sub:"Je suis sociologue et ancien postdoctorant. Je travaille à l’interface entre recherche, prise de parole et conseil pour aider les institutions à naviguer les transitions technologiques et psychologiques.",
+        cta_speak:"M’inviter à intervenir", cta_project:"Discuter d’un projet de conseil", cta_cv:"Profil académique",
+        fa1_t:"IA & société", fa1_d:"Confiance, autorité, gouvernance, décisions ordinaires et vie sociale des modèles.",
+        fa2_t:"Transhumanisme (regard critique)", fa2_d:"Les récits d’augmentation comme miroirs culturels: imaginaires, promesses, inquiétudes.",
+        fa3_t:"Santé mentale au travail", fa3_d:"Accélération, attention, sens, sécurité psychologique et soin organisationnel.",
+        side_role:"Rôle", side_role_v:"Sociologue · Enseignant-chercheur · Conférencier · Consultant",
+        side_focus:"Champs", side_focus_v:"Tech émergentes, IA, culture numérique, futur du travail, santé numérique, éthique",
+        side_base:"Base", side_base_v:"France (Europe/Paris) · Interventions internationales",
+        pill1:"Ancrage académique", pill2:"Recherche de terrain", pill3:"Formation exécutive", pill4:"Keynotes & ateliers",
+        side_note:"Ce site est volontairement minimal: écriture claire, structure lisible, ton sobre adapté aux universités, institutions et publics dirigeants.",
+        about_k:"À propos", about_t:"Parcours et méthode",
+        about_p1:"Je suis sociologue, formé aux méthodes qualitatives et à l’analyse des imaginaires contemporains. Après une thèse sur le transhumanisme et un postdoctorat, je travaille aujourd’hui entre recherche, enseignement, prise de parole et conseil.",
+        about_p2:"J’aide les organisations à penser l’IA et les technologies émergentes non seulement comme des outils, mais comme des environnements sociaux qui transforment l’attention, l’identité professionnelle, la gouvernance et le sens.",
+        about_li1:"Rigueur: preuves, clarté conceptuelle, discipline méthodologique.",
+        about_li2:"Clarté: langage accessible sans réduire la complexité.",
+        about_li3:"Éthique: responsabilité, soin, confiance institutionnelle.",
+        about_li4:"Pragmatisme: livrables conçus pour décider et agir.",
+        shortbio_t:"Bio courte (organisateurs)",
+        shortbio_v:"Marouane Jaouat est sociologue et ancien postdoctorant. Il travaille à l’interface entre recherche, prise de parole et conseil sur l’IA, les technologies émergentes, le travail et le sens.",
+        langs:"Langues: français, anglais.",
+        about_placeholders:"À compléter si besoin: affiliations, publications sélectionnées, photo pro.",
+        res_k:"Recherche", res_t:"Axes et productions",
+        res1_t:"Axes", res1_d:"IA & société, imaginaires du futur, transhumanisme, travail et identité, santé numérique, éthique.",
+        res2_t:"Thèse", res2_d:"Travail doctoral sur le transhumanisme et les récits de salut technologique. [Ajouter le titre de thèse]",
+        res3_t:"Publications", res3_d:"Liste de publications avec références et PDFs. [Ajouter ici]",
+        pubs_t:"Publications sélectionnées (placeholder)", cv_t:"CV académique", cv_d:"Ajoute plus tard un PDF (ex: cv.pdf) et lie-le ici.",
+        cv_btn:"Télécharger le CV (PDF)",
+        talks_k:"Conférences", talks_t:"Keynotes, talks, ateliers",
+        talks_p:"Formats pensés pour universités, institutions et publics dirigeants. Ton sobre, fondé sur la recherche, orienté vers des décisions concrètes.",
+        fmt1_t:"Keynote (45–60 min)", fmt1_d:"Narration structurée, concepts, cas, et un message clair pour les décideurs.",
+        fmt2_t:"Talk (20–30 min)", fmt2_d:"Intervention concise, idéale en panel, colloque, conférence.",
+        fmt3_t:"Atelier (90–180 min)", fmt3_d:"Session interactive: risques, gouvernance, éthique, lignes directrices.",
+        topics_t:"Thèmes proposés",
+        topic1:"De l’outil à l’état d’esprit: comment l’IA reconfigure attention, travail et sens.",
+        topic2:"La vie sociale de l’IA: confiance, autorité, décisions ordinaires.",
+        topic3:"Le transhumanisme comme miroir: ce que les récits d’augmentation disent de nous.",
+        topic4:"Santé mentale au travail: accélération, identité, soin organisationnel.",
+        topic5:"Santé numérique et identité pro: éthique, données, pratiques du care.",
+        topic6:"Futur du travail: compétences, institutions, facteur humain.",
+        speaker_cta:"Demander un “speaker kit”",
+        cons_k:"Conseil", cons_t:"Conseil, formation, évaluation qualitative",
+        cons_p:"MJAouat Consulting accompagne les organisations avec une analyse fondée sur la recherche et des livrables clairs. Objectif: pas de bruit, de la clarté: gouvernance, pratiques professionnelles, expérience humaine.",
+        pillA_t:"Stratégie & advisory", pillA_d:"Diagnostics, cadres de gouvernance, cartographie des risques éthiques, notes d’aide à la décision.",
+        pillB_t:"Formation & exec ed", pillB_d:"Culture IA, éthique, culture numérique, santé mentale au travail, identité pro en ligne.",
+        pillC_t:"Recherche & évaluation", pillC_d:"Entretiens, analyse thématique, synthèse parties prenantes, recommandations actionnables.",
+        examples:"Exemples (anonymisés)\n1) Clarifier une gouvernance IA dans une institution publique.\n2) Concevoir une politique d’identité numérique responsable pour les équipes.\n3) Accompagner un comité de direction sur santé mentale et attention en contexte d’accélération.",
+        ct_k:"Contact", ct_t:"Me contacter",
+        ct_p:"Utilise le formulaire ou écris directement. Basé en France (Europe/Paris). Interventions internationales possibles.",
+        f_name_l:"Nom", f_email_l:"Email", f_msg_l:"Message",
+        send_btn:"Préparer l’email", linkedin_btn:"LinkedIn",
+        ct_note:"Note: le bouton “Préparer l’email” ouvre ton client mail avec un message pré-rempli (aucune donnée n’est stockée ici).",
+        direct_email:"Email direct:", ids:"Identifiants optionnels:",
+        foot_line:"Minimal, lisible, aligné recherche."
+      }
+    };
+
+    let lang = "en";
+
+    function applyLang(next){
+      lang = next;
+      document.getElementById("btnEN").setAttribute("aria-pressed", String(lang==="en"));
+      document.getElementById("btnFR").setAttribute("aria-pressed", String(lang==="fr"));
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k = el.getAttribute("data-i18n");
+        if(dict[lang][k]) el.textContent = dict[lang][k];
+      });
+      document.documentElement.lang = lang;
+    }
+
+    document.getElementById("btnEN").addEventListener("click", ()=>applyLang("en"));
+    document.getElementById("btnFR").addEventListener("click", ()=>applyLang("fr"));
+
+    // Prefill mailto
+    document.getElementById("sendBtn").addEventListener("click", ()=>{
+      const name = (document.getElementById("name").value || "").trim();
+      const email = (document.getElementById("email").value || "").trim();
+      const msg = (document.getElementById("message").value || "").trim();
+
+      const subject = lang==="fr"
+        ? "Prise de contact – intervention / conseil"
+        : "Inquiry – speaking / consulting";
+
+      const bodyLines = [
+        lang==="fr" ? "Bonjour Marouane," : "Hello Marouane,",
+        "",
+        msg || (lang==="fr" ? "[Décris brièvement ton contexte et ta demande]" : "[Briefly describe your context and request]"),
+        "",
+        lang==="fr" ? "Coordonnées:" : "Details:",
+        `${lang==="fr" ? "Nom" : "Name"}: ${name || "[Your name]"}`,
+        `${lang==="fr" ? "Email" : "Email"}: ${email || "[your email]"}`,
+        "",
+        lang==="fr" ? "Bien cordialement," : "Best regards,"
+      ];
+
+      // Replace this with your real email when ready
+      const to = "add-your-email@domain.com";
+      const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+      window.location.href = mailto;
+    });
+
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // default
+    applyLang("en");
+  </script>
+</body>
+</html>
